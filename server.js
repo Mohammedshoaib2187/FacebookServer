@@ -133,7 +133,7 @@ app.post("/user-login",async function(req,res){
     
 })
 
-app.get("/all-users",async function(req,res){
+app.get("/all-users",authenticate,async function(req,res){
     try{
         let conn =await mongoclient.connect(url)
 
@@ -153,7 +153,7 @@ app.get("/all-users",async function(req,res){
     
 })
 
-app.post("/add-friend",async function(req,res){
+app.post("/add-friend",authenticate,async function(req,res){
     try{
         let conn =await mongoclient.connect(url)
 
@@ -177,7 +177,7 @@ app.post("/add-friend",async function(req,res){
     
 })
 
-app.post('/user-edit/:id', async function(req, res) {
+app.post('/user-edit/:id',authenticate, async function(req, res) {
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -205,7 +205,7 @@ app.post('/user-edit/:id', async function(req, res) {
 
 });
 
-app.get("/user/:id",async function(req,res){
+app.get("/user/:id",authenticate,async function(req,res){
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -226,7 +226,7 @@ app.get("/user/:id",async function(req,res){
     
 })
 
-app.get("/one-user/:id",async function(req,res){
+app.get("/one-user/:id",authenticate,async function(req,res){
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -247,7 +247,7 @@ app.get("/one-user/:id",async function(req,res){
     
 })
 
-app.post("/post-insert",async function(req,res){
+app.post("/post-insert",authenticate,async function(req,res){
     try{
         let conn =await mongoclient.connect(url)
 
@@ -269,7 +269,7 @@ app.post("/post-insert",async function(req,res){
     })
 })
 
-app.get("/post-data",async function(req,res){
+app.get("/post-data",authenticate,async function(req,res){
     try{
         let conn =await mongoclient.connect(url)
 
