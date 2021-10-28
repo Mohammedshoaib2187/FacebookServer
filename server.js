@@ -133,7 +133,7 @@ app.post("/user-login",async function(req,res){
     
 })
 
-app.get("/all-users",authenticate,async function(req,res){
+app.get("/all-users",async function(req,res){
     try{
         let conn =await mongoclient.connect(url)
 
