@@ -293,6 +293,27 @@ app.get("/post-data",authenticate,async function(req,res){
     })
 })
 
+app.post('/post-delete/:id',async function(req, res) {
+    try{
+        let conn =await mongoclient.connect(url)
+
+        let db = conn.db("Facebook")
+
+
+        await db.collection("posts").deleteOne({_id: mongodb.ObjectId(req.params.id)})
+
+        await conn.close()
+
+        res.json({
+            message: "user deleted"
+        })
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+
+});
 
 app.listen(process.env.PORT || 3000,function(){
     console.log("Server is running")
