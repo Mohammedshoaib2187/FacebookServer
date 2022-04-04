@@ -34,11 +34,7 @@ function authenticate(req, res, next) {
 
 app.use(express.json())
 app.use(cors({
-    origin : "*",
-    methods: [
-        'GET',
-        'POST',
-    ],
+    origin : "*"
 }))
 
 // const storage = multer.diskStorage({
@@ -291,10 +287,6 @@ app.get("/post-data",authenticate,async function(req,res){
     {
         console.log(err)
     }
-
-    res.json({
-        message : "post added"
-    })
 })
 
 app.post('/post-delete/:id',async function(req, res) {
