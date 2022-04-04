@@ -270,6 +270,7 @@ app.post("/post-insert",authenticate,async function(req,res){
 })
 
 app.get("/post-data",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
