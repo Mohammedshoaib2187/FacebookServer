@@ -34,7 +34,11 @@ function authenticate(req, res, next) {
 
 app.use(express.json())
 app.use(cors({
-    origin : "*"
+    origin : "*",
+    methods: [
+        'GET',
+        'POST',
+    ],
 }))
 
 // const storage = multer.diskStorage({
