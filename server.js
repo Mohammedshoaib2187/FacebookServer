@@ -51,6 +51,7 @@ app.use(cors({
 // var students =[]
 
 app.post("/user-register",async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
@@ -83,6 +84,7 @@ app.post("/user-register",async function(req,res){
 })
 
 app.post("/user-login",async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
@@ -134,6 +136,7 @@ app.post("/user-login",async function(req,res){
 })
 
 app.get("/all-users",async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
@@ -154,6 +157,7 @@ app.get("/all-users",async function(req,res){
 })
 
 app.post("/add-friend",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
@@ -178,6 +182,7 @@ app.post("/add-friend",authenticate,async function(req,res){
 })
 
 app.post('/user-edit/:id',authenticate, async function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -206,6 +211,7 @@ app.post('/user-edit/:id',authenticate, async function(req, res) {
 });
 
 app.get("/user/:id",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -227,6 +233,7 @@ app.get("/user/:id",authenticate,async function(req,res){
 })
 
 app.get("/one-user/:id",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
@@ -248,6 +255,7 @@ app.get("/one-user/:id",authenticate,async function(req,res){
 })
 
 app.post("/post-insert",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
@@ -295,6 +303,7 @@ app.get("/post-data",authenticate,async function(req,res){
 })
 
 app.post('/post-delete/:id',async function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         let conn =await mongoclient.connect(url)
 
