@@ -227,6 +227,7 @@ app.get("/user/:id",authenticate,async function(req,res){
 })
 
 app.get("/one-user/:id",authenticate,async function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     try{
         var id= parseInt(req.params.id)
         let conn =await mongoclient.connect(url)
